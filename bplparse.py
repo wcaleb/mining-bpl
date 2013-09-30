@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
-# bplscrape.py
+# bplparse.py
 # W. Caleb McDaniel / wcm1.web.rice.edu
 
 # An ugly (but effective) method to take a list of item URLs in the
@@ -21,7 +21,7 @@ from bs4 import BeautifulSoup
 def getstring(tag):
 	return "None" if tag is None else tag.subfield.string.encode('utf-8')
 
-f = open('bplitemurls-chunk.txt','r')
+f = open('bplitemurls-short.txt','r')
 for line in f:
 
 	# remove new lines, save item name for later when forming url to MARC
@@ -40,15 +40,15 @@ for line in f:
  	# bplcallno = getstring(xmlsoup.find(tag="099"))
 	author = getstring(xmlsoup.find(tag="100"))
 	recipient = getstring(xmlsoup.find(tag="700"))
+	print author + ';' + recipient
 
 	# In this case, I'm going to write the author and recipient to a CSV file
 	# suitable for uploading into Gephi.
-	f = open('bplnetwork.txt','a')
-	f.write(author + ';' + recipient + '\n')
-	f.close
+	# f = open('bplnetwork.txt','a')
+	# f.write(author + ';' + recipient + '\n')
+	# f.close
 
-# CHECK IF I HAVE A LOCAL TRANSCRIPTION OF A GIVEN RECORD
-# ----------------------------------------------------------
+# -------
 
 # The following code won't be generally useful. It's basically a method
 # I devised to see if the notes I took at the BPL contain a transcription
@@ -59,7 +59,7 @@ for line in f:
 # 	# E.g turn "Ms.A.9.2 vol. 16, p. 22" to "Ms.A.9.2.16.22"
 # 	bplcallno = str(bplcallno).translate(None, ' voln,p')
 # 
-# 	if os.path.exists("/Users/wcm1/programming/bpltranscript/renamed/" + bplcallno):
+# 	if os.path.exists("/Users/---/programming/bpltranscript/renamed/" + bplcallno):
 # 		print bplcallno + " exists"
 # 	else:
 # 		print bplcallno + " does not exist"
