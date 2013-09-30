@@ -9,6 +9,9 @@
 # For large, ongoing projects, it's recommended that you modify this script 
 # to write all the XML records you need to local files.
 
+import urllib2
+from bs4 import BeautifulSoup
+
 # First, we'll parse the HTML of each item page to get HTTPS url root
 # Append _marc.xml to each of these https URLs to get URL to MARC record.
 # Then parse the MARC record to get desired data fields for the item.
@@ -31,12 +34,15 @@ for line in f:
 	https_string = htmlsoup.find(text="HTTPS")	
 	xmlurl = https_string.find_parent("a")['href'] + "/" + itemname + "_marc.xml"
 
-	# go to MARC record for item to get author, recipient(s), BPL call number
+	# Go to MARC record for item to get author, recipient(s), BPL call number
  	marcxml = urllib2.urlopen(xmlurl).read()
  	xmlsoup = BeautifulSoup(marcxml, "xml")
  	# bplcallno = getstring(xmlsoup.find(tag="099"))
 	author = getstring(xmlsoup.find(tag="100"))
 	recipient = getstring(xmlsoup.find(tag="700"))
+
+	# In this case, I'm going to write the author and recipient to a CSV file
+	# suitable for uploading into Gephi.
 	f = open('bplnetwork.txt','a')
 	f.write(author + ';' + recipient + '\n')
 	f.close
