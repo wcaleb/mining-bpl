@@ -6,3 +6,5 @@ This repository contains two scripts I wrote to interact with the digital items 
 - The script `bplparse.py` figures out the URL for each item's full MARCXML record and then parses the XML for particular metadata such as the creator and recipient of a letter. This can be useful for creating tables like the one in `bplnetwork.txt`, which contains (what I believe to be) the author and recipient for each letter in the collection, separated by a semicolon.
 
 Please use these scripts with care so that the Internet Archive doesn't get hammered by requests. If you plan to interact at length with the XML metadata, for instance, you should probably modify one of the scripts so that you download copies of all the MARC records to your computer for local parsing.
+
+For more explanation of how I'm using the stuff in this repository, see my blog post on [Mining the BPL Antislavery Collection on the Internet Archive](http://wcm1.web.rice.edu/mining-bpl-antislavery.html).
