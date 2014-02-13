@@ -1,4 +1,4 @@
-I'm an historian of American antislavery. One of the largest and most useful collections of antislavery correspondence in the United States is the [Anti-Slavery Collection](http://www.bpl.org/distinction/featured-collections/anti-slavery/) at the Boston Public Library in Copley Square. That collection is now being gradually digitized and uploaded to the [Internet Archive](http://archive.org/details/bplscas/).
+I'm a historian of American antislavery. One of the largest and most useful collections of antislavery correspondence in the United States is the [Anti-Slavery Collection](http://www.bpl.org/distinction/featured-collections/anti-slavery/) at the Boston Public Library in Copley Square. That collection is now being gradually digitized and uploaded to the [Internet Archive](http://archive.org/details/bplscas/).
 
 This repository contains two scripts I wrote to interact with the digital items in the collection, of which there are now over 6400.
 
